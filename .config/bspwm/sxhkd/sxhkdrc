@@ -1,0 +1,177 @@
+#################################################################
+# BSPWM
+#################################################################
+
+# Cambiar de workspace
+super + {1-9,0}
+	bspc desktop -f '{1-9,10}'
+
+super + Tab
+    bspc desktop -f next
+
+super + shift + Tab
+    bspc desktop -f prev
+
+# Mover entre pantallas
+super + alt + {Left,Right}
+		bspc monitor -f {prev,next}
+
+# Cambiar foco ventanas
+super + {Left,Down,Up,Right}
+	bspc node --{focus} {west,south,north,east}
+
+# Mover ventanas
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc node --{focus,swap} {west,south,north,east}
+
+# Redimensionar ventanas
+super + control + {Left,Down,Up,Right}
+  bspc node -z {left -20 0 || bspc node -z right -20 0, \
+                bottom 0 20 || bspc node -z top 0 20,\
+                top 0 -20 || bspc node -z bottom 0 -20,\
+                right 20 0 || bspc node -z left 20 0}
+
+# Enviar ventana a otro workspace
+super + shift + {1-9,0}
+    id=$(bspc query -N -n); bspc node -d {1-9,10}; bspc node -f ${id}}
+
+# Cerrar ventana
+super + w
+	bspc node -c
+
+button8
+    bspc node -c
+
+#Matar ventana
+super + shift + w
+    bspc node -k
+
+# Modo pantalla completa
+super + f
+	bspc node --state \~fullscreen
+
+# Modo monoculo
+super + m
+	bspc desktop -l next
+
+# Modo flotante
+super + t
+	bspc node --state \~floating
+
+# Recargar sxhkd
+super + shift + s
+	pkill -USR1 -x sxhkd
+
+# Recargar bspwm
+super + shift + r
+    ~/.config/bspwm/bspwmrc
+
+#################################################################
+# LANZAR PROGRAMAS
+#################################################################
+
+# Terminal
+super + Return
+    alacritty
+
+# Navegador
+super + b
+    firefox
+
+# Navegador privado
+super + shift + b
+    firefox --private-window
+
+# Gestor archivos
+super + e
+    thunar
+
+# Menú
+super + r
+    rofi -no-lazy-grab -show drun -modi drun -no-sort -disable-history -theme ~/.config/rofi/launcher.rasi
+
+# Discord
+super + d
+    discord
+
+# Steam
+super + s
+    steam
+
+# Code
+super + c
+    code
+
+#Keepass
+super + k
+    keepassxc
+
+#Gimp
+super + g
+    gimp
+
+#Música
+super + v
+    gnome-music
+
+#Correo
+super + a
+    thunderbird
+
+#SoulSeek
+super + p
+    soulseekqt
+
+#Emule
+super + o
+    amule
+
+
+
+#################################################################
+# MULTIMEDIA
+#################################################################
+
+# Play
+XF86AudioPlay
+    playerctl play-pause
+
+# Next
+XF86AudioNext
+    playerctl next
+
+# Prev
+XF86AudioPrev
+    playerctl previous
+
+# Stop
+XF86AudioStop
+    playerctl stop
+
+# Mute
+XF86AudioMute
+    amixer -D pulse set Master 1+ toggle
+
+# Bajar volumen
+XF86AudioLowerVolume
+    amixer set Master 2%-
+
+# Subir volumen
+XF86AudioRaiseVolume
+    amixer set Master 2%+
+
+#################################################################
+# SCREENSHOT
+#################################################################
+
+# Recorte
+Print
+    flameshot gui
+
+# Pantallazo 1 monitor
+super + Print
+    flameshot screen
+
+# Pantallazo todos los monitores
+super + shift + Print
+    flameshot full

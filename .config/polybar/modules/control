@@ -1,0 +1,19 @@
+[module/power-menu]
+type = custom/script
+exec = echo ""
+label = %output%
+
+[module/search]
+type = custom/script
+exec = echo ""
+click-left = rofi -no-lazy-grab -show drun -modi drun -no-sort -disable-history -theme ~/.config/rofi/launcher.rasi
+
+[module/file-man]
+type = custom/script
+exec = echo ""
+click-left = thunar &
+
+[module/terminal]
+type = custom/script
+exec = echo ""
+click-left = alacritty &

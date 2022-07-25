@@ -1,0 +1,31 @@
+[module/bspwm]
+type = internal/bspwm
+
+reverse-scroll = false
+enable-scroll = false
+pin-workspaces = false
+inline-mode = true
+
+ws-icon-0 = 1;%{A3: firefox &:}爵%{A}
+ws-icon-1 = 2;%{A3: firefox &:}%{A}
+ws-icon-2 = 3;%{A3: discord &:}ﭮ%{A}
+ws-icon-3 = 4;%{A3: steam &:}%{A2: lutris &:}%{A}%{A}
+ws-icon-4 = 5;%{A3: code &:}%{A2: postman &:}%{A}%{A}
+ws-icon-5 = 6;%{A3: gimp &:}%{A}
+ws-icon-6 = 7;%{A3: gnome-music &:}%{A}
+ws-icon-7 = 8;%{A3: firefox &:}%{A}
+
+format = "<label-state>" 
+label-foreground = #e1e3e4
+
+label-focused =" %icon% "
+label-focused-foreground = #c4a7e7
+label-focused-underline = #c4a7e7
+label-focused-padding = 0
+
+label-occupied =" %icon% "
+label-occupied-foreground = #ea9a97
+label-occupied-padding = 0
+
+label-empty = " %icon% "
+label-empty-padding = 0

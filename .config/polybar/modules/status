@@ -1,0 +1,35 @@
+[module/disk]
+type= internal/fs
+
+mount-0 = /
+interval = 30
+format-mounted = <label-mounted>
+label-mounted = %{A1:baobab:}%{A3:gnome-disks:}%{A2:bleachbit:}%{T4}%{T-} %{T3}%free%%{T-}%{A}
+
+[module/cpu]
+type = custom/script
+exec = sensors | grep TSI0_TEMP | awk {'print $2'} | cut -b 2-3
+label = %{T4}%{T-} %{T6}%output%C%{T-}
+interval = 1
+tail = true
+
+click-left = gnome-system-monitor
+click-right = gnome-logs
+
+[module/cpu2]
+type = internal/cpu
+interval = 1
+label = %{T5}%{O-45}%percentage:3%%%{T-}
+
+[module/ram]
+type = internal/memory
+interval = 1
+label = %{T4}﬙%{T-} %{T3}%used%%{T-}
+
+[module/gpu]
+type = custom/script
+exec = ~/.config/polybar/scripts/gpu.sh
+interval = 1
+label = %{T4}%{T-} %output%
+
+click-left = nvidia-settings

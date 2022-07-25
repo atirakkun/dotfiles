@@ -1,0 +1,5 @@
+[module/separator-orange-right]
+type=custom/text
+content = 
+content-foreground = #3e8fb0
+content-background = #eb6f92

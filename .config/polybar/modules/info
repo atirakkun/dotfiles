@@ -1,0 +1,49 @@
+[module/volume]
+type = internal/pulseaudio
+sink = bluez_sink.38_B1_9E_EC_A3_49.a2dp_sink
+use-ui-max = false
+interval = 2
+format-volume = <ramp-volume> <label-volume>
+label-volume = %{T4}%percentage%%%{T-}
+
+label-muted = %{T3}ﱝ%{T-}
+label-muted-foreground = #f38ba8
+
+ramp-volume-0 = %{T3}奄%{T-}
+ramp-volume-1 = %{T3}奔%{T-}
+ramp-volume-2 = %{T3}墳%{T-}
+
+click-right = pavucontrol
+
+[module/wlan]
+type = internal/network
+interface = enp6s0
+interface-type = wired
+interval = 3.0
+
+label-connected = %{A1: nm-connection-editor:}%{A3: gufw:}%{T3}%{T-}%{A}%{A}
+;label-connected-foreground = #6dcae8
+
+label-disconnected = %{T3}%{T-}
+;label-disconnected-foreground = #f38ba8
+
+[module/bluetooth]
+type = custom/script
+exec = ~/.config/polybar/scripts/bluetooth-status.sh &
+format = <label>
+label = %{T3}%output%%{T-}
+interval = 3
+tail = true
+
+click-left = blueberry
+click-right = hardinfo
+
+[module/date]
+type = custom/script
+exec = date '+%H:%M'
+format = <label>
+label = %{T3}%{T-} %{T2}%output%%{T-}
+interval = 1
+tail=true
+
+click-right = gnome-calendar

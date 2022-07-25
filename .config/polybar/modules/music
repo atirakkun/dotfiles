@@ -1,0 +1,16 @@
+[module/music]
+type = custom/script
+exec = ~/.config/polybar/scripts/music.sh
+tail = true
+interval = 0
+label = %{T4}%{T-} %{T3}%output%%{T-}
+
+click-left = playerctl --player=org.gnome.Music play-pause
+click-right = gnome-music
+double-click-left = playerctl --player=org.gnome.Music next
+double-click-right = playerctl --player=org.gnome.Music previous
+scroll-up = pactl set-sink-input-volume $(pactl list sink-inputs | grep -B 25 org.gnome.Music | grep "Entrada de destino" | awk {'print $4'} | cut -c2-) +2%
+scroll-down = pactl set-sink-input-volume $(pactl list sink-inputs | grep -B 25 org.gnome.Music | grep "Entrada de destino" | awk {'print $4'} | cut -c2-) -2%
+
+
+;Hacer que zscroll se actualice al cambiar de canción

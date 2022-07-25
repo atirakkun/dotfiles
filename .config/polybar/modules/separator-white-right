@@ -1,0 +1,5 @@
+[module/separator-white-right]
+type=custom/text
+content = 
+content-foreground = #232136
+content-background = #e0def4

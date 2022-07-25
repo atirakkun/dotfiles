@@ -1,0 +1,5 @@
+[module/separator-white-left]
+type=custom/text
+content = %{T3}%{T-}
+content-foreground = #e0def4
+content-background = #00000000

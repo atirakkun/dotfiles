@@ -1,0 +1,121 @@
+configuration {
+	font:							"Cartograph CF 10";
+    show-icons:                     true;
+	icon-theme: 					"oomox-rose-pine-moon";
+    display-drun: 					"";
+    disable-history:                false;
+	sidebar-mode: 					false;
+    hover-select:                   true;
+    me-select-entry:                "";
+    me-accept-entry:                [MousePrimary];
+}
+
+* {
+    background:                     #232136;
+    background-alt:              	#2a273f;
+    background-bar:                 #393552;
+    foreground:                     #e0def4;
+    accent:			            	#c4a7e7;
+}
+
+window {
+    background-color:               @background;
+    text-color:                     @foreground;
+	border:							0px;
+	border-color:					@border;
+    border-radius:                  0px;
+	width:							40%;
+    location:                       center;
+    x-offset:                       0;
+    y-offset:                       0;
+}
+
+
+entry {
+    background-color:               @background-alt;
+    text-color:                     @foreground;
+    placeholder-color:              @foreground;
+    expand:                         true;
+    horizontal-align:               0;
+    placeholder:                    "Buscar";
+    padding:                        0.10% 0% 0% 0%;
+    blink:                          true;
+}
+
+inputbar {
+	children: 						[ entry ];
+    background-color:               @background-alt;
+    text-color:                     @foreground;
+    expand:                         false;
+	border:							0% 0% 0% 0%;
+	border-color:					@accent;
+    margin:                         0% 0% 0% 0%;
+    padding:                        1.5%;
+}
+
+listview {
+    background-color:               @background;
+    columns:                        5;
+    lines:                          3;
+    spacing:                        0%;
+    cycle:                          false;
+    dynamic:                        true;
+    layout:                         vertical;
+}
+
+mainbox {
+    background-color:               @background;
+	border:							0% 0% 0% 0%;
+    border-radius:                  0% 0% 0% 0%;
+	border-color:					@accent;
+    children:                       [ inputbar, listview ];
+    spacing:                       	2%;
+    padding:                        2% 1% 2% 1%;
+}
+
+element {
+    background-color:               @background;
+    text-color:                     @foreground;
+    orientation:                    vertical;
+    border-radius:                  0%;
+    padding:                        2% 0% 2% 0%;
+    cursor:                         pointer;
+}
+
+element-icon {
+    background-color: 				@background;
+    text-color:       				inherit;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    size:                           64px;
+    border:                         0px;
+    cursor:                         pointer;
+}
+
+element-text {
+    background-color: 				@background;
+    text-color:       				inherit;
+    expand:                         true;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    margin:                         0.5% 0.5% -0.5% 0.5%;
+    cursor:                         pointer;
+}
+
+element selected {
+    background-color:               @background-bar;
+    text-color:                     @foreground;
+	border:							0% 0% 0% 0%;
+    border-radius:                  4px;
+    border-color:                  	@accent;
+}
+
+element-icon selected {
+    background-color:               @background-bar;
+    text-color:                     @foreground;
+}
+
+element-text selected {
+    background-color:               @background-bar;
+    text-color:                     @accent;
+}

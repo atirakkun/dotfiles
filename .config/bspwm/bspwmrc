@@ -1,0 +1,67 @@
+#!/bin/sh
+
+#LAUNCHERS
+$HOME/.config/bspwm/autostart.sh
+#fix for moving spotify to specific workspace
+#bspc config external_rules_command ~/.config/bspwm/scripts/external_rules_command
+
+# BSPWM configuracion
+#bspc config border_radius       8
+bspc config border_width         3
+bspc config window_gap           12
+bspc config top_padding          30
+bspc config single_monocle       false
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config focus_follows_pointer false
+bspc config pointer_modifier mod4
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_side
+bspc config pointer_action3 resize_corner
+bspc config remove_disabled_monitors true
+bspc config merge_overlapping_monitors true
+
+# Colores
+bspc config normal_border_color		"#232136"
+bspc config active_border_color		"#232136"
+bspc config focused_border_color	"#c4a7e7"
+
+# Monitores
+bspc monitor DP-0 -d 1 4 5 6
+bspc monitor HDMI-0 -d 2 3 7 8 
+
+#Aplicaciones pantalla completa
+#bspc rule -a Gimp state=fullscreen
+
+# Aplicaciones flotantes
+bspc rule -a Pavucontrol state=floating
+#bspc rule -a rofi state=floating sticky=on
+
+#Tiled applications
+bspc rule -a Gnome-disks state=tiled
+bspc rule -a Xfce4-settings-manager state=tiled
+bspc rule -a zathura state=tiled
+
+#open applications on specific workspaces
+bspc rule -a discord desktop='3'
+bspc rule -a Steam desktop='4'
+bspc rule -a lutris desktop='4'
+bspc rule -a org.gnome.Music desktop='7'
+
+#Spotify fix  --move desktop 10
+#sleep 1
+#wmctrl -r Spotify -t 10
+#exit
+
+#polybar hidden when fullscreen for vlc, youtube, mpv ...
+#find out the name of your monitor with xrandr
+#xdo below -t $(xdo id -n root) $(xdo id -a polybar-main_DP-1)
+#xdo below -t $(xdo id -n root) $(xdo id -a polybar-main_HDMI1)
+#xdo below -t $(xdo id -n root) $(xdo id -a polybar-main_HDMI2)
+
+###External rules
+##Pseudo automatic mode: always splits focused window when opening new window
+#bspc config external_rules_command ~/.config/bspwm/scripts/pseudo_automatic_mode
+##Adjust new window: splits biggest windows to keep windows about the same size
+#bspc config external_rules_command ~/.config/bspwm/scripts/adjust-new-window

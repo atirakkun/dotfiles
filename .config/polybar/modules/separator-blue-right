@@ -1,0 +1,5 @@
+[module/separator-blue-right]
+type=custom/text
+content = %{T3}%{T-}
+content-foreground = #9ccfd8
+content-background = #3e8fb0
